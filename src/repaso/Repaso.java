@@ -14,19 +14,16 @@ import modelo.*;
 public class Repaso {
 
     public static void main(String[] args) {
-        // ==========================================
+        //main
         // 1. CREAR UNA CUENTA
-        // ==========================================
         Cuenta cuenta = new Cuenta("001", "Nicolas", new BigDecimal("100000"));
         System.out.println("Saldo inicial: $" + cuenta.getSaldo());
         // Depositar
         cuenta.depositar(new BigDecimal("50000"));
         System.out.println("Despues de depositar: $" + cuenta.getSaldo());
         
-        
-        // ==========================================
+
         // 2. DEBITAR DE UNA CUENTA
-        // ==========================================
         try {
             cuenta.debitar(new BigDecimal("30000"));
             System.out.println("Despues de debitar: $" + cuenta.getSaldo());
@@ -34,10 +31,8 @@ public class Repaso {
             System.out.println(e.getMessage());
         }
         
-        
-        // ==========================================
+
         // 3. CUENTA CORRIENTE
-        // ==========================================
         CuentaCorriente cuentaCorriente
                 = new CuentaCorriente(
                         "002",
@@ -51,10 +46,8 @@ public class Repaso {
         System.out.println("Saldo despues del debito: $"
                 + cuentaCorriente.getSaldo());
         
-        
-        // ==========================================
+
         // 4. POLIMORFISMO CON PAGO
-        // ==========================================
         Pago pagoTarjeta = new PagoTarjeta("123456789");
         Pago pagoTransferencia
                 = new PagoTransferencia("987654321");
@@ -67,10 +60,8 @@ public class Repaso {
         pagoEfectivo.procesar(new BigDecimal("30000"));
         System.out.println(pagoEfectivo.getDescripcion());
         
-        
-        // ==========================================
+
         // 5. CHECKOUT 
-        // ==========================================
         Checkout checkout = new Checkout();
         /*
          * El mismo método puede recibir diferentes
